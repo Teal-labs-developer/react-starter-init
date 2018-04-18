@@ -73,7 +73,7 @@
 		Follow steps according to platform :
 
 		1. **Android**
-		You need to generate SHA and add the generated fingerprint to your firebase config for android app.
+		You need to generate SHA1 and add the generated fingerprint to your firebase config for android app.
 			```
 			// For Debug
 			keytool -list -v -keystore debug.keystore -alias androiddebugkey -storepass android -keypass android
@@ -81,7 +81,7 @@
 			keytool -list -v -keystore [keystore path] -alias my-key-alias -storepass [storepass] -keypass [keypass]
 			```
 
-			Go to Firebase > Project Settings ![enter SHA](https://image.ibb.co/hY3t6n/Screen_Shot_2018_04_18_at_1_10_11_PM.png)
+			Go to Firebase > Project Settings ![enter SHA1](https://image.ibb.co/hY3t6n/Screen_Shot_2018_04_18_at_1_10_11_PM.png)
 
 			
 
