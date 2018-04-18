@@ -36,10 +36,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.reactnative.init</string>
+			<string>ADD_BUNDLE_ID</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.reactnative.init</string>
+				<string>ADD_BUNDLE_ID</string>
 			</array>
 		</dict>
 	</array>
