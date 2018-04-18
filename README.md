@@ -16,6 +16,10 @@
 *  [Xcode](https://developer.apple.com/xcode/) for iOS Development
 *  [Android SDK](https://developer.android.com/sdk/) for Android development
 *  [React-Native-CLI](https://facebook.github.io/react-native/docs/getting-started.html)
+
+	```
+	> npm install -g react-native-cli
+	```
 # Get Started
 1.  ## :arrow_down: Installation
 	Fire command prompt and run following commands :
@@ -29,7 +33,7 @@
 	1. ## Google Signin
 		We are using [react-native-google-signin](https://github.com/devfd/react-native-google-signin) for Google Signin. For user authentication and push notification we will be using [Firebase](https://firebase.google.com/). First we setup our firebase app for both platforms.
 
-		* Create a new account / Log in to your account
+		* Create a new [account](https://firebase.google.com/) / Log in to your [account](https://firebase.google.com/)
 		* Create a new project with required information
 
 		### Generate Release/Debug keystores
@@ -39,22 +43,34 @@
 		```
 
 		// For Debug
-
 		keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
 
 		// For Release
-
-		keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+		keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 
 		```
 
 		> Move the .keystore file generated to android/app folder.
 
-		Make sure your *gradle.properties* file in *android/app* should look like following :
+		Your *gradle.properties* file in *android / app* should have following settings. The _store and key password_ should be same as what you entered while creating Release keystore file.  
 
-		![gradle.properties](https://image.ibb.co/jwtFGn/carbon_1.png)
+		```
+		MYAPP_RELEASE_STORE_PASSWORD= /* Password of release keystore */
+		MYAPP_RELEASE_KEY_PASSWORD= /* Enter password here*/
+		```
 
-		Now add firebase individually to your android and iOS app. You can check bundle id from _build.gradle_ file in _android/app_. Follow steps according to platform :
+		Configure Firebase project for both android and iOS app individually. You will get _Bundle Identifier_ from _build.gradle_
+		
+		```
+		ProjectName
+		|_ android
+		|_ _ app
+		|_ _ _ build.gradle
+		|_ _ _ gradle.properties
+		```
+		![build.gradle](https://image.ibb.co/mQtBbn/carbon_2.png)
+
+		Follow steps according to platform :
 
 		1. **Android**
 		You need to generate SHA and add the generated fingerprint to your firebase config for android app.
@@ -62,7 +78,7 @@
 			// For Debug
 			keytool -list -v -keystore debug.keystore -alias androiddebugkey -storepass android -keypass android
 			// For Release
-			keytool -list -v -keystore [keystore path] -alias [alias-name] -storepass [storepass] -keypass [keypass]
+			keytool -list -v -keystore [keystore path] -alias my-key-alias -storepass [storepass] -keypass [keypass]
 			```
 
 			Go to Firebase > Project Settings ![enter SHA](https://image.ibb.co/hY3t6n/Screen_Shot_2018_04_18_at_1_10_11_PM.png)
@@ -95,22 +111,26 @@
 			For more configuration in Google Signin, follow instructions from [React-Native-Google-Signin](https://github.com/devfd/react-native-google-signin) .
 	2.  ## OneSignal
 		[OneSignal](https://onesignal.com/) provides a simple interface to push notifications and email.
-		* Create an account
-		* Add a new app
-		* Configure individually for both platforms
+		* Create an account [here](https://onesignal.com/)
+		* Add a new app and configure individually for both platforms
 		1. **Android**
-		Open your firebase project and switch to Cloud Messaging tab and copy required fields for configuring android app
-		* Google Server API Key: ```/* insert Server key */```
-		* Google Project Number: ```/* insert Sender Id here */```
-	![cloud messaging](https://image.ibb.co/dsKHhS/firebase1.png)
+		Open your [firebase project](https://console.firebase.google.com) and switch to Cloud Messaging tab and copy required fields for configuring android app
+			* Google Server API Key: ```/* insert Server key */```
+			* Google Project Number: ```/* insert Sender Id here */```
+			![cloud messaging](https://image.ibb.co/dsKHhS/firebase1.png)
 
 			You need to replace * ADD_ONE_SIGNAL_APP_ID, ADD_FIREBASE_SENDER_ID*. You will get *ADD_ONE_SIGNAL_APP_ID* from App settings of OneSignal Project.
 
-			> https://onesignal.com/apps/enter-your-app-id/settings#tab_keys_and_ids
-			
 			And *ADD_FIREBASE_SENDER_ID* will be Sender Id from Firebase Project as given in picture above.
 
-	
+			```
+			// Navigate here
+
+			ProjectName
+			|_ android
+			|_ _ app
+			|_ _ _ build.gradle
+			```
 
 			![onesignal app id](https://image.ibb.co/no8M97/Screen_Shot_2018_04_18_at_2_36_35_PM.png)
 
@@ -126,22 +146,36 @@
 	3.  ## Sentry
 		[Sentry](https://sentry.io/) provides open source error tracking that shows you every crash in your stack as it happens, with the details needed to prioritize, identify, reproduce, and fix each issue.
 
-		* Create your account
+		* Create your account [here](https://sentry.io/signup) / Login [here](https://sentry.io/auth/login/)
 		* Add a new project
-		* Now go to *sentry.properties* file in both android and iOS folder
+		* Once you are done creating project go to *sentry.properties* file in both android and iOS folder
+			```
+			// Navigate here
+
+			ProjectName
+			|_ android
+			|_ _ app
+			|_ _ _ sentry.properties
+			|
+			|_ _ ios
+			|_ _ _ sentry.properties
+			```
+
 		Note : Your *sentry.properties* file should look like this
 
 		
 
 		![onesignal](https://image.ibb.co/n1qUwn/Screen_Shot_2018_04_18_at_2_57_37_PM.png)
 
-		Now open *index.js* and change *ADD_SENTRY_CLIENT_KEY* from DSN https://sentry.io/teal-labs/your-project-name/settings/keys/
+		Migrate [here](https://sentry.io/api) to get _auth.token_ :point_up:
+
+		Now open *index.js* and change *ADD_SENTRY_CLIENT_KEY* from DSN 
 
 		![](https://image.ibb.co/fFrmbn/Screen_Shot_2018_04_18_at_3_02_40_PM.png)
 
 	4.  ## Code Push
 
-		CodePush is a cloud service that enables React Native developers to deploy mobile app updates instantly to their users’ devices. Following steps will help in configuring CodePush for project.
+		CodePush is a cloud service that enables React Native developers to deploy mobile app updates instantly to their user's devices. Following steps will help in configuring CodePush for project.
 		1. Install CodePush CLI
 			``` 
 			npm install -g code-push-cli
@@ -150,7 +184,7 @@
 			``` 
 			// Register
 			> code-push register
-			// Login
+			// Login if registered already
 			> code-push login
 			```
 		3. Register your app
@@ -161,12 +195,12 @@
 
 			```
 			// For Android
-			> code-push app add <App-Name> android react-native
+			> code-push app add <App-Name-Android> android react-native
 
 			// For iOS
-			> code-push app add <App-Name> ios react-native
+			> code-push app add <App-Name-Ios> ios react-native
 			```
-		4. Run following command
+		4. Run following command, individually for both platforms
 			```
 			> code-push deployment ls <appName> --displayKeys
 			```
@@ -175,7 +209,7 @@
 
 			
 
-
+# Start 
   
 
 ## :poop: Troubleshooting :poop:
