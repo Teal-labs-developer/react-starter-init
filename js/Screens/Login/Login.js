@@ -30,7 +30,6 @@ export default class Login extends Component {
     }
 
     render(){
-        console.log("hmmh");
         return(
             <View style={styles.container}>
                 <TouchableOpacity activeOpacity={0.8} onPress={() => this.onClickLogin()} style={[styles.buttonStyle]}>

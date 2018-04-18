@@ -62,7 +62,7 @@ class App extends Component{
         
         GoogleSignin.configure({
             scopes:['profile','email'],
-            iosClientId: "926726632019-5ev22j7nbkdl9ggeeub2hfhk70n7m0qm.apps.googleusercontent.com"
+            iosClientId: "ADD_IOS_CLIEND_ID"
         })
             .then(() => {
                 

@@ -30,7 +30,7 @@
 {
   NSURL *jsCodeLocation;
   NSString *oneSignalAppId;
-  oneSignalAppId = @"b646dbc9-6bbe-423b-a6e3-4be39606c582";
+  oneSignalAppId = @"ADD_ONE_SIGNAL_APP_ID";
   
     #ifdef DEBUG
         jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios&dev=true"];

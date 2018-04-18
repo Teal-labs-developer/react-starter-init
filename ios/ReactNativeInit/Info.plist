@@ -26,10 +26,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.googleusercontent.apps.926726632019-5ev22j7nbkdl9ggeeub2hfhk70n7m0qm</string>
+			<string>ADD_REVERSE_CLIEND_ID </string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.926726632019-5ev22j7nbkdl9ggeeub2hfhk70n7m0qm</string>
+				<string>ADD_REVERSE_CLIEND_ID</string>
 			</array>
 		</dict>
 		<dict>
@@ -44,7 +44,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>0.1</string>
 	<key>CodePushDeploymentKey</key>
 	<string>$(CODEPUSH_KEY)</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -53,13 +53,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>codepush.azurewebsites.net</key>
+			<dict/>
 			<key>localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
-			<key>codepush.azurewebsites.net</key>
-			<dict/>
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>

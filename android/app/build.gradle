@@ -106,14 +106,14 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
-        versionName "2.0"
+        versionName "0.1"
         multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
         manifestPlaceholders = [manifestApplicationId          : "${applicationId}",
-                                onesignal_app_id               : "b646dbc9-6bbe-423b-a6e3-4be39606c582",
-                                onesignal_google_project_number: "926726632019"]
+                                onesignal_app_id               : "ADD_ONE_SIGNAL_APP_ID",
+                                onesignal_google_project_number: "ADD_FIREBASE_SENDER_ID"]
     }
     signingConfigs {
         release {
@@ -136,10 +136,10 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField "String", "CODEPUSH_KEY", '"_SlIMEqZUntCDbjPX5CeHeUqPY51d9f5a0fd-7c44-4ff8-97da-63f598643ef9"'
+            buildConfigField "String", "CODEPUSH_KEY", '"ADD_CODEPUSH_DEBUG_KEY"'
         }
         release {
-            buildConfigField "String", "CODEPUSH_KEY", '"FJbL9n69BECCy_aX9jwrtnFYRb5Cd9f5a0fd-7c44-4ff8-97da-63f598643ef9"'
+            buildConfigField "String", "CODEPUSH_KEY", '"ADD_CODEPUSH_RELEASE_KEY"'
             minifyEnabled enableProguardInReleaseBuilds
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
