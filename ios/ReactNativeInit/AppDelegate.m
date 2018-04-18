@@ -33,7 +33,7 @@
   oneSignalAppId = @"b646dbc9-6bbe-423b-a6e3-4be39606c582";
   
     #ifdef DEBUG
-        jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+        jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.bundle?platform=ios&dev=true"];
     #else
         jsCodeLocation = [CodePush bundleURL];
     #endif

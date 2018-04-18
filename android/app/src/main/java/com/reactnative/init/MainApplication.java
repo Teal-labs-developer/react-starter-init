@@ -36,7 +36,7 @@ public class MainApplication extends Application implements ReactApplication {
             new RNSentryPackage(MainApplication.this),
             new RNGoogleSigninPackage(),
             new ReactNativeOneSignalPackage(),
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
+            new CodePush(BuildConfig.CODEPUSH_KEY, MainApplication.this, BuildConfig.DEBUG)
       );
     }
 

@@ -106,7 +106,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "2.0"
         multiDexEnabled true
         ndk {
             abiFilters "armeabi-v7a", "x86"
@@ -135,8 +135,13 @@ android {
         }
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "CODEPUSH_KEY", '"_SlIMEqZUntCDbjPX5CeHeUqPY51d9f5a0fd-7c44-4ff8-97da-63f598643ef9"'
+        }
         release {
+            buildConfigField "String", "CODEPUSH_KEY", '"FJbL9n69BECCy_aX9jwrtnFYRb5Cd9f5a0fd-7c44-4ff8-97da-63f598643ef9"'
             minifyEnabled enableProguardInReleaseBuilds
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
